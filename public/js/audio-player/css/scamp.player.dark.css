@@ -1,0 +1,103 @@
+/* ----------------------------------------------------------------------
+
+Scamp Player 3 - Dark 2017 Skin
+
+---------------------------------------------------------------------- */
+#sp-toggle { display: none; }
+.sp-track-details { }
+.sp-buttons-container a { }
+.sp-buttons-container .sp-queue-button-container {border-left: 1px solid #1b1b1b;}
+.sp-player-wrap { background-color: #000 }
+.sp-track-cover .sp-track-artwork, .sp-cover-artwork img {width: 50px;/* height: 50px; */}
+.sp-track-title, .sp-track-artist { padding-left: 10px; margin: 0; }
+.sp-progress-container:after { background-color: #666; }
+.sp-track-artist, .sp-track-artist:hover { }
+.sp-track-title, .sp-track-artist {font-size: 11px;text-transform: uppercase;letter-spacing: 0.05em;}
+#sp-queue-scroll th { padding: 18px 10px; }
+.sp-queue .sp-icon:before { font-size: 28px; }
+.sp-title a { display: block; font-size: 12px; }
+.sp-title a.sp-title-button { font-weight: bold; font-size: 13px; }
+.sp-title a.sp-title-button, .sp-title a.sp-artist-button {font-weight: normal;text-transform: uppercase;}
+.sp-progress-mobile .sp-progress { margin-top: 20px; }
+.sp-marquee strong { }
+.sp-queue-container {}
+.sp-progress-mobile:before { display: none; }
+#sp-queue-scroll td { padding: 6px 14px; }
+#sp-queue-scroll th {padding: 10px 10px;font-weight: 600;font-size: 12px;letter-spacing: 0.1em;}
+.sp-progress-mobile .sp-progress { margin-top: 0px; padding-top: 0px; }
+.sp-progress-mobile {    /* background-color: #FFFFFF; */
+z-index: 2; margin-top: 0px; overflow: hidden; height: 48px; padding-top: 20px; }
+.sp-time-elapsed { left: 0px; }
+.sp-time-total { right: 0px; }
+.sp-progress-mobile:after { content: ''; display: block; background-color: #222; position: absolute; left: 0px; top: 20px; width: 100%; height: 1px; margin-right: 10px; }
+#scamp_player #sp-toggle:after { content: "\e052"; line-height: 36px; font-weight: 300; font-size: 18px }
+#scamp_player.sp-show.playing #sp-toggle:after { content: ""; background: transparent url(../img/eq2.svg) center center no-repeat; width: 40px; height: 40px; }
+#scamp_player.sp-show-player #sp-toggle:after, #scamp_player.sp-show-player.playing #sp-toggle:after { background: none; content: "\e117"; line-height: 40px; font-weight: 300; font-size: 18px }
+.sp-buttons-container a.sp-play-button:before { content: "\e612"; }
+#scamp_player.playing .sp-buttons-container a.sp-play-button:before { content: "\e903"; }
+.sp-buttons-container a.sp-next-button:before { content: "\e616"; }
+.sp-buttons-container a.sp-prev-button:before { content: "\e617"; }
+.sp-buttons-container a.sp-volume-button:before { content: "\e098"; }
+.sp-buttons-container a.sp-queue-button:before { content: "\e902"; }
+#scamp_player.sp-show-list .sp-buttons-container a.sp-queue-button:before { content: "\e117"; }
+#scamp_player.sp-queue-loading .sp-buttons-container a.sp-queue-button:before { content: "\e620"; }
+.sp-track-control:before { content: "\e612"; }
+.sp-track.playing .sp-track-control:before { content: "\e903"; }
+.sp-queue .sp-cart-button:before { content: "\e901"; font-size: 18px }
+.sp-cart-button.sp-download-button:before { content: "\e122"; font-size: 18px }
+.sp-queue .sp-remove-button:before { content: "\e115"; font-size: 18px }
+.sp-buttons-container a.sp-volume-button.sp-vol-max:before { content: "\e098"; }
+.sp-buttons-container a.sp-volume-button.sp-vol-medium:before { content: "\e098"; }
+.sp-buttons-container a.sp-volume-button.sp-vol-off:before { content: "\e099"; }
+#scamp_player.sp-show-list .sp-buttons-container a.sp-queue-button:before { color: #fff; }
+#sp-toggle { background-color: #111; color: #fff; font-size: 16px; width: 40px; height: 40px; transition: 0.3s color ease; border: 1px solid transparent; position: absolute; right: 0; top: -39px; border: 1px solid #222; border-bottom: 0; border-right: 0; }
+.sp-show-player #sp-toggle { color: #fff; }
+#sp-toggle:hover { color: #fff; }
+.sp-show-list .sp-player-container:before { border-bottom: none; }
+.sp-main-container {}
+.sp-player-container { }
+#scamp_player.sp-show-list .sp-player-container { }
+.sp-progress-mobile:before { background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 1))); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* Opera 11.10+ */ background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* IE10+ */ background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); /* W3C */ border-color: #ddd; }
+.sp-buttons-container { color: #fff; }
+.sp-buttons-container a { color: #fff; }
+.sp-buttons-container a:hover { color: #fff; }
+.sp-volume-bar-container, .sp-volume-bar-container:after { }
+.sp-volume-bar-container:after { border-left: 0; border-top: 0; }
+.sp-volume-slider { background-color: #131415; }
+.sp-volume-position { background-color: #222; }
+.sp-badge { background-color: #ffffff; color: #1a1b1c; }
+.sp-progress:before, .sp-progress:after { display: none }
+.sp-progress .sp-loading { background-color: #444; }
+.sp-progress .sp-position { background-color: #ff7700; }
+#scamp_player.paused .sp-position { background-color: #ff7700; }
+.sp-time-elapsed { color: #fff; }
+.sp-time-total { color: #fff; }
+.sp-track-title, .sp-track-title:hover { color: #fff; }
+.sp-track-artist, .sp-track-artist:hover { color: #999; }
+.sp-marquee-container { color: #999; }
+.sp-marquee strong { color: #fff; }
+.sp-queue-container {background-color: rgba(0, 0, 0, 0.98);}
+.sp-queue .sp-icon:before {color: #fff;}
+.sp-track.playing, .sp-track.paused, .sp-track.loading { }
+.sp-track:hover { background-color: rgba(111, 111, 111, 0.1); }
+.sp-track.playing, .sp-track.paused { background-color:#f70 }
+.sp-track.playing .sp-track-control.sp-icon:before, .sp-track.paused .sp-track-control.sp-icon:before, .sp-track.loading .sp-track-control.sp-icon:before {color: #ffffff;}
+#sp-queue-scroll tr {border-color: #0b0b0b;}
+#sp-queue-scroll th {color: #fff;text-transform: uppercase;}
+#sp-queue-scroll thead tr { border: none }
+#sp-queue-scroll tbody tr:first-child td { padding-top: 20px; }
+#sp-queue-scroll tbody tr:last-child { border-bottom:0 }
+.sp-title a.sp-title-button {color: #fff;font-size: 12px;text-transform: uppercase;letter-spacing: 0.05em;}
+.sp-title a.sp-artist-button {color: rgba(255, 255, 255, 0.61);font-size: 11px;}
+#sp-queue-scroll .playing .sp-title a.sp-title-button {color: #ffffff; font-weight:600; }
+.sp-queue .sp-icon:hover { color: #fff; }
+.sp-queue .sp-icon:hover:before {color: #fff;}
+#scamp-mobile-init { background-color: #333; }
+
+/* Vol */
+.sp-volume-slider { background-color: transparent;    /* margin-top:14px */ }
+.sp-volume-slider:after { content: ''; background-color: #444; position: absolute; width: 100%; height: 3px; }
+.sp-volume-position { height: 3px; background-color: #fff; }
+.sp-volume-container { border-left: 1px solid #1b1b1b; }
+#sp-empty-queue {color: #fff;background-color: #ff7700;padding: 0;text-transform: none;font-size: 10px;padding: 4px 13px;transition: 0.3s ease;border-radius: 99em;text-transform: uppercase;font-weight: 600;}
+#sp-empty-queue:hover { background-color: #333 }

@@ -1,0 +1,284 @@
+/* ----------------------------------------------------------------------
+
+Scamp Player Stylesheet
+
+---------------------------------------------------------------------- */
+
+/* Import fonts */
+@import url(../fonts/style.css);
+
+/* Global settings */
+#scamp_player * { -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box;    /* Firefox, other Gecko */ box-sizing: border-box;         /* Opera/IE 8+ */ }
+#scamp_player { font: 12px/1.4 "PT Sans", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif; -webkit-backface-visibility: hidden; }
+
+
+/* Main styles
+------------------------------- */
+#scamp_player {width: 100%;clear: both;position: fixed;left: 0;z-index: 65;bottom: 0;}
+
+#scamp_player.sp-anim { -webkit-transition: all .6s cubic-bezier(.77, 0, .175, 1); -moz-transition: all .6s cubic-bezier(.77, 0, .175, 1); transition: all .6s cubic-bezier(.77, 0, .175, 1); }
+#scamp_player > a { display: none; }
+.sp-buttons-container a { transition: all 0.3s ease; }
+#scamp_player.sp-show.sp-show-list { top: 0 }
+#scamp_player.sp-show-list { z-index: 999999; }
+
+/* Toggle */
+#sp-toggle-wrap { overflow: hidden; }
+#sp-toggle { float: right; width: 30px; height: 20px; z-index: 10; cursor: pointer; text-align: center; font-size: 26px; font-weight: normal; line-height: 20px; z-index: 2; position: relative; }
+#sp-toggle:after { display: inline-block; font-family: 'Scamp-Player'; }
+#scamp_player.sp-show-player #sp-toggle:after { display: inline-block; }
+
+/* Show player */
+.sp-main-container { position: relative; bottom:-70px; }
+#scamp_player.sp-show-player .sp-main-container { bottom:0; }
+#scamp_player.sp-show-player.sp-show-list .sp-main-container { }
+
+/* Player Container
+-------------------------------------------- */
+.sp-player-wrap { position: relative; }
+.sp-player-container { width: 1200px; z-index: 2; height: 50px; position: relative; margin: 0 auto; }
+
+/* Buttons
+------------------------------------ */
+.sp-buttons-container { float: left; margin-right: 10px; position: relative; line-height: normal; }
+.sp-buttons-container .sp-controls { display: inline-block; text-align: left; }
+.sp-buttons-container a {display: inline-block;cursor: pointer;margin-right: 5px;font-size: 22px;text-align: left;opacity: 0.9;position: relative;top: 11px;}
+.sp-buttons-container a:hover { opacity: 1 }
+.sp-buttons-container a.sp-play-button { margin-right: 15px; margin-left: 15px; position: relative; }
+a.sp-play-button:after {content: "";position: absolute;left: -10px;top: -7px;z-index: -1;border-radius: 100%;width: 40px;height: 40px;background-color: #eee;}
+.sp-buttons-container a:hover { }
+.sp-buttons-container a:before { font-family: 'Scamp-Player'; }
+.sp-buttons-container a.sp-play-button:before { font-size: 22px; }
+#scamp_player.playing .sp-buttons-container a.sp-play-button:before { font-size: 22px; }
+#scamp_player.loading .sp-buttons-container a.sp-play-button:before { animation: blinksp normal 0.5s infinite ease-in-out; -webkit-animation: blinksp normal 0.5s infinite ease-in-out; }
+keyframes blinksp { 0% { opacity: 1 }
+    50% { opacity: 0.5 }
+    100% { opacity: 1 }
+}
+@-webkit-keyframes blinksp {
+    0% { opacity: 1 }
+    50% { opacity: 0.5 }
+    100% { opacity: 1 }
+}
+
+/* Volume
+------------------------------------ */
+.sp-volume-container { position: relative; display: inline-block; margin-left: 5px; padding-left: 15px; height: 50px; line-height: normal; }
+.sp-volume-bar-container { width: 120px; position: relative; }
+.sp-volume-bar-container:before { font-family: 'Scamp-Player'; content: "\e098"; position: absolute; left: 0; top: 16px; font-size: 18px; opacity: 0.8; }
+.sp-volume-slider { display: inline-block; width: 100px; position: relative; margin-left: 30px; margin-top: 24px; z-index: 1; cursor: ew-resize; cursor: -moz-grab; cursor: grab; top: -1px; }
+.sp-volume-position { position: absolute; left: 0; top: 0; width: 40px; height: 4px; max-width: 100px; z-index: 1; }
+
+/* Queue button */
+.sp-queue-button { min-width: 25px }
+.sp-buttons-container .sp-queue-button-container {position: relative;display: inline-block;margin-left: 25px;padding-left: 15px;height: 49px;}
+.sp-buttons-container .sp-queue-button:before {font-size: 24px;}
+#scamp_player.sp-show-list .sp-buttons-container a.sp-queue-button:before {font-size: 24px;}
+#scamp_player.sp-queue-loading .sp-buttons-container a.sp-queue-button:before { position:absolute; top:4px; font-size: 22px; display: inline-block; -webkit-animation: spin 2s linear infinite; -moz-animation: spin 2s linear infinite; animation: spin 2s linear infinite; }
+#scamp_player.sp-queue-loading .sp-buttons-container a.sp-queue-button { position:relative; height:23px;}
+/* Queue Notifications */
+.sp-badge { position: absolute; top: 0px; left: 1px; font-size: 11px; font-weight: bold; display: inline-block; min-width: 10px; padding: 3px 5px; line-height: 1; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 10px; opacity: 0; }
+.sp-show-badge { opacity: 1; }
+@-moz-keyframes spin {
+    100% { -moz-transform: rotate(-360deg); }
+}
+@-webkit-keyframes spin {
+    100% { -webkit-transform: rotate(-360deg); }
+}
+@keyframes spin {
+    100% { -webkit-transform: rotate(-360deg); transform: rotate(-360deg); }
+}
+
+/* Progress bars and time
+------------------------------------ */
+.sp-progress-container { position: absolute; left: 0; top: -8px; width: 100%; z-index: 10; }
+.sp-progress .sp-loading,
+.sp-progress .sp-position { bottom: 0; top: auto }
+.sp-progress-container:after,.sp-progress .sp-position, 
+.sp-progress .sp-loading { bottom: 0; top: auto }
+.sp-progress-container:after { content: ''; display: block; position: absolute; left: 0; width: 100%; }
+.sp-progress { height: 8px; width: 100%; position: relative; z-index: 1; cursor: ew-resize; cursor: -moz-grab; cursor: grab; }
+.sp-progress .sp-loading { position: absolute; left: 0; z-index: 2; height: 100%; }
+.sp-progress .sp-position { position: absolute; left: 0;  z-index: 3; height: 100%; }
+.sp-progress-container:after, .sp-progress .sp-position, .sp-progress .sp-loading {  height: 2px; transition: height 0.2s ease; }
+.sp-progress-container:hover:after, .sp-progress-container:hover .sp-progress .sp-position, .sp-progress-container:hover .sp-progress .sp-loading { height: 8px; }
+
+/* Time */
+.sp-time { float: right; position: relative; top: 15px; }
+.sp-time-elapsed, .sp-time-total { position: relative; font-size: 11px; font-weight: bold; }
+.sp-time-elapsed { display: none; }
+.sp-time-total { }
+.sp-time-elapsed:before, .sp-time-total:before { content: "\2014"; display: inline-block; padding-right: 2px }
+
+/* Current track
+------------------------------------ */
+.sp-track-container { position: relative; margin-top: 0px; display: inline-block; }
+.sp-track-cover { float: left; }
+.sp-track-cover .sp-track-artwork { max-width: 50px; max-height: 50px; height: 100%; }
+.sp-track-details { float: left; height: 50px; overflow: hidden; position: relative; }
+.sp-track-title { padding-top: 8px; }
+.sp-track-title, .sp-track-artist {display: block;font-size: 12px;max-width: 100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;text-overflow: ellipsis;-o-text-overflow: ellipsis;-ms-text-overflow: ellipsis;margin: 2px 0;position: relative;}
+.sp-track-title, .sp-track-title:hover { }
+.sp-track-artist, .sp-track-artist:hover { }
+.sp-marquee-container { position: relative; left: 10px; top: 17px; overflow: hidden; text-transform:uppercase; font-size: 12px; margin: 0 auto; white-space: nowrap; display: none; width: 200px; font-weight: bold; }
+.sp-marquee { display: inline-block; padding-left: 100%; -webkit-animation: marquee 10s linear infinite; -moz-animation: marquee 10s linear infinite; animation: marquee 10s linear infinite; }
+@-moz-keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+@-webkit-keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* Player Queue
+-------------------------------------------- */
+.sp-queue-container {padding: 0 6px 50px 6px;display: none;height: 100vh;}
+.sp-show-list .sp-player-wrap {position:absolute;bottom: 0px;left:0px;right: 0px;z-index:100;}
+#sp-empty-queue { text-transform: uppercase; font-size: 10px; padding: 2px 8px; line-height: normal; cursor: pointer; }
+
+/* Mobile progress bar */
+.sp-progress-mobile { width: 100%; height: 20px; position: relative; display: none; }
+.sp-progress-mobile:before { content: ''; width: 100%; height: 20px; position: absolute; left: 0; top: -43px; z-index: 2; }
+.sp-progress-mobile .sp-progress { margin-top: 24px; }
+
+/* Queue - Table */
+#scamp_player.sp-show-list .sp-queue-container { display: block; }
+.sp-queue { position: relative; z-index: 1; overflow: hidden; width: 100%; height: 100%; overflow: auto; }
+.sp-queue:before { content: ''; width: 100%; height: 20px; background-color: red; }
+.sp-queue .sp-icon:before { font-family: 'Scamp-Player'; font-size: 42px; line-height: normal; font-weight: normal; }
+.sp-track.playing .sp-icon:before, .sp-track.paused .sp-icon:before, .sp-track.loading .sp-icon:before { }
+#sp-queue-scroll { padding: 20px 0; border-collapse: collapse; border-spacing: 0; width: 1200px; max-width: 100%; margin: 0 auto; background-color: transparent; }
+#sp-queue-scroll th.sp-th-cart { text-align: center; }
+#sp-queue-scroll th.sp-th-remove { text-align: right; }
+#sp-queue-scroll th { border: none; background-color: transparent }
+#sp-queue-scroll td { padding: 6px; vertical-align: middle; border: none; }
+.sp-track.playing, .sp-track.paused, .sp-track.loading { }
+.sp-track:hover { }
+#sp-queue-scroll tr { border-bottom: 1px solid; }
+#sp-queue-scroll tr:last-child {border-bottom: 1px solid #1e1e1e;}
+
+/* Track control */
+.sp-track-control { display: inline-block; cursor: pointer; max-width: 42px; }
+.sp-track-control:before { }
+.sp-track.playing .sp-track-control:before { }
+
+/* Artwork */
+.sp-cover-artwork img {width: 48px;margin-bottom: 0;vertical-align: middle;}
+
+/* Title */
+.sp-title a { display: block; font-size: 12px; }
+.sp-title a.sp-title-button { font-weight: bold; font-size: 14px; }
+.sp-title a.sp-artist-button { }
+
+/* Cart */
+.sp-cart { text-align: center; }
+.sp-cart-button:before { }
+.sp-cart-button.sp-download-button:before { }
+
+/* Remove */
+.sp-remove { text-align: right; }
+.sp-remove-button { cursor: pointer; margin-right: 10px; }
+.sp-queue .sp-remove-button:before { }
+
+/* Hover state */
+.sp-queue .sp-icon:hover { }
+.sp-queue .sp-icon:hover:before { }
+#sp-queue-scroll th.sp-list-controls { width: 100%; padding: 10px; text-align: right; }
+
+/* Scroll styles */
+#sp-scroller .iScrollVerticalScrollbar { position: absolute; z-index: 10; width: 4px; bottom: 2px; top: 2px; right: 0px; overflow: hidden; }
+#sp-scroller .iScrollVerticalScrollbar.iScrollBothScrollbars { bottom: 18px; }
+#sp-scroller .iScrollIndicator { position: absolute; border-radius: 2px; opacity: 0.05; cursor: pointer; }
+#sp-scroller:hover .iScrollIndicator { opacity: 0.4; }
+#sp-scroller .iScrollVerticalScrollbar .iScrollIndicator { width: 100%; }
+
+/* Mobile init click */
+#scamp-mobile-init { opacity: 0; position: fixed; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; z-index: 100000; display: block; }
+
+/* Shoutcast */
+#scamp_player.is-shoutcast .sp-progress { cursor: default; }
+#scamp_player.is-shoutcast .sp-loading, #scamp_player.is-shoutcast .sp-position, #scamp_player.is-shoutcast .sp-progress:before, #scamp_player.is-shoutcast .sp-progress:after { opacity: 0 }
+#scamp_player.is-shoutcast .sp-time-total { opacity: 0 }
+#scamp_player.is-shoutcast  .sp-progress-container:after { display: none; }
+#scamp_player.is-shoutcast .sp-progress { background: transparent; }
+#scamp_player.is-shoutcast .sp-time-elapsed { display: block; }
+@media only screen and (max-width:979px) {
+    #scamp_player.is-shoutcast.sp-show-list .sp-time-elapsed { display: none }
+}
+
+/* ----------------------------------------------------------------------
+MEDIA QUERIES
+/* ---------------------------------------------------------------------- */
+
+/* Large Displays */
+@media only screen and (max-width:1640px) and (min-width:1150px) {
+
+    /* Container */
+    .sp-player-container, #sp-queue-scroll { width: 1170px; }
+}
+
+/* Large Displays */
+@media only screen and (max-width:1560px) and (min-width:1150px) {
+
+    /* Container */
+    .sp-player-container, #sp-queue-scroll { width: 1150px; }
+}
+
+/* ----------------------------------------------------------------------
+For Small Desktop Devices [ 960px ]
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width:1240px) {
+    .sp-player-container, #sp-queue-scroll { width: 960px; }
+    .sp-track-title, .sp-track-artist { max-width: 400px; }
+}
+
+/* ----------------------------------------------------------------------
+For Tablet and Mobile devices 
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width:1020px) {
+    .sp-player-container, #sp-queue-scroll { width: 100%; padding: 0 30px; }
+}
+
+/* ----------------------------------------------------------------------
+For Tablet Devices [ 748px ]
+/* ---------------------------------------------------------------------- */
+@media only screen and (min-width:768px) and (max-width:1020px) {
+    .sp-volume-container { display: none; }
+    .sp-track-title, .sp-track-artist { max-width: 300px; }
+    .sp-marquee-container { max-width: 80px; left: 10; }
+}
+
+/* ----------------------------------------------------------------------
+For Mobile Devices [ 440px ]
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width:559px) {
+    .sp-marquee-container { max-width: 80px; left: 0; display: none; }
+    .sp-track-cover { display: none }
+    .sp-time { display: none }
+}
+
+/* ----------------------------------------------------------------------
+Only for small devices [ 300px ]
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width:340px) {
+    .sp-track-cover { display: none }
+    .sp-buttons-container .sp-queue-button-container { margin-left: 10px; padding-left: 15px; }
+    .sp-marquee-container { max-width: 80px; left: 0; }
+    .sp-time { display: none }
+}
+
+/* ----------------------------------------------------------------------
+For Mobile Devices [ 300px ]
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width:768px) {
+    .sp-track-title, .sp-track-artist { display: none; }
+    .sp-volume-container { display: none; }
+    .sp-marquee-container { display: block; }
+    .sp-queue .sp-small-screen { display: none; }
+    .sp-title a.sp-title-button { font-size: 12px; }
+}

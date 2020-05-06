@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function App() {
-  console.log(process.env)
-  return (
-    <div className="App">
-      Content will live here!
-    </div>
-  );
-}
+import Navbar from "./containers/Navbar";
+
+const App = () => (
+  <div className="App">
+    <Navbar />
+  </div>
+);
 
 export default App;
