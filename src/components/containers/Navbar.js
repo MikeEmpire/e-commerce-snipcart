@@ -15,7 +15,7 @@ const Navbar = () => (
       <h6 className="social-title trans-10 show-fx">Follow Me</h6>
 
       <div className="social-icons trans-10 show-fx delay-01">
-        <a className="circle-btn">
+        <a href="#intro" className="circle-btn">
           <svg
             className="circle-svg"
             width="50"
@@ -35,7 +35,7 @@ const Navbar = () => (
           <span className="icon icon-facebook"></span>
         </a>
 
-        <a className="circle-btn">
+        <a href="#intro" className="circle-btn">
           <svg
             className="circle-svg"
             width="50"
@@ -55,7 +55,7 @@ const Navbar = () => (
           <span className="icon icon-twitter"></span>
         </a>
 
-        <a className="circle-btn">
+        <a href="#intro" className="circle-btn">
           <svg
             className="circle-svg"
             width="50"
@@ -75,7 +75,7 @@ const Navbar = () => (
           <span className="icon icon-Beatport"></span>
         </a>
 
-        <a className="circle-btn">
+        <a href="#intro" className="circle-btn">
           <svg
             className="circle-svg"
             width="50"
@@ -107,7 +107,7 @@ const Navbar = () => (
         <nav id="icon-nav">
           <ul>
             <li className="responsive-trigger-wrap">
-              <a className="circle-btn responsive-trigger">
+              <a href="#intro" className="circle-btn responsive-trigger">
                 <svg
                   className="circle-svg"
                   width="40"
@@ -158,7 +158,7 @@ const Navbar = () => (
               </a>
             </li>
             <li className="search-trigger-wrap">
-              <a id="nav-search" className="circle-btn">
+              <a href="#intro" id="nav-search" className="circle-btn">
                 <svg
                   className="circle-svg"
                   width="40"
@@ -179,7 +179,7 @@ const Navbar = () => (
               </a>
             </li>
             <li className="social-trigger-wrap">
-              <a id="nav-social" className="circle-btn">
+              <a href="#intro" id="nav-social" className="circle-btn">
                 <svg
                   className="circle-svg"
                   width="40"
