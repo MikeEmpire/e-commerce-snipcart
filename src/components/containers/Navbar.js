@@ -1,5 +1,8 @@
 import React from "react";
 
+const logoLight = require('../../images/logo-light.svg')
+const logoDark = require('../../images/logo.svg')
+
 const Navbar = () => (
   <div id="header" className="hide-navigation">
     <div id="search-block">
@@ -100,8 +103,8 @@ const Navbar = () => (
     <div id="main-nav">
       <div className="nav-container">
         <a href="#intro" id="logo" className="smooth-scroll skew-fx">
-          <img src="images/logo-light.svg" alt="Logo" className="logo-light" />
-          <img src="images/logo.svg" alt="Logo" className="logo-dark" />
+          <img src={logoLight} alt="Logo" className="logo-light" />
+          <img src={logoDark} alt="Logo" className="logo-dark" />
         </a>
 
         <nav id="icon-nav">
