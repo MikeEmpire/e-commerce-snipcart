@@ -1,7 +1,7 @@
 import React from "react";
 
-const logoLight = require('../../images/logo-light.svg')
-const logoDark = require('../../images/logo.svg')
+const logoLight = require("../../images/logo-light.svg");
+const logoDark = require("../../images/logo.svg");
 
 const Navbar = () => (
   <div id="header" className="hide-navigation">
@@ -131,7 +131,7 @@ const Navbar = () => (
               </a>
             </li>
             <li className="cart-trigger-wrap">
-              <a href="#show-cart" className="cart-btn circle-btn">
+              <a href="#show-cart" className="cart-btn circle-btn snipcart-checkout">
                 <svg
                   className="circle-svg"
                   width="40"
@@ -158,9 +158,11 @@ const Navbar = () => (
                   ></circle>
                 </svg>
                 <span className="pe-7s-cart"></span>
+                <span className="snipcart-items-count sell-count">0</span>
+                <span className="snipcart-total-price">0.00</span>
               </a>
             </li>
-            <li className="search-trigger-wrap">
+            {/* <li className="search-trigger-wrap">
               <a href="#intro" id="nav-search" className="circle-btn">
                 <svg
                   className="circle-svg"
@@ -179,6 +181,27 @@ const Navbar = () => (
                   ></circle>
                 </svg>
                 <span className="pe-7s-search"></span>
+              </a>
+            </li> */}
+            <li className="social-trigger-wrap">
+              <a href="#intro" id="nav-social" className="circle-btn">
+                <svg
+                  className="circle-svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    className="circle"
+                    cx="25"
+                    cy="25"
+                    r="23"
+                    stroke="#fff"
+                    strokeWidth="1"
+                    fill="none"
+                  ></circle>
+                </svg>
+                <span className="pe-7s-share"></span>
               </a>
             </li>
             <li className="social-trigger-wrap">
