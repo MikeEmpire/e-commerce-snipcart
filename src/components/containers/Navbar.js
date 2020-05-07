@@ -204,8 +204,8 @@ const Navbar = () => (
                 <span className="pe-7s-share"></span>
               </a>
             </li>
-            <li className="social-trigger-wrap">
-              <a href="#intro" id="nav-social" className="circle-btn">
+            <li>
+              <a href="#intro" id="nav-social" className="circle-btn snipcart-customer-signin">
                 <svg
                   className="circle-svg"
                   width="40"
@@ -222,7 +222,7 @@ const Navbar = () => (
                     fill="none"
                   ></circle>
                 </svg>
-                <span className="pe-7s-share"></span>
+                <span className="pe-7s-users"></span>
               </a>
             </li>
           </ul>
