@@ -4,7 +4,7 @@ const splashImage = require("../../images/intro-image-01.jpg");
 const Splash = () => (
   <div id="intro" className="intro intro-01 intro-fullscreen clearfix">
     <div className="intro-image parallax">
-      <img className="hidden loaded" src={splashImage} alt="Splash screen" />
+      <img className="hidden" src={splashImage} alt="Splash screen" />
     </div>
 
     <div className="text-slider" data-delay="5">

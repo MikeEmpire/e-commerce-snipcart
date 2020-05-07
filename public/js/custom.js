@@ -1,10 +1,10 @@
 // When DOM is fully loaded
 jQuery(document).ready(function ($) {
-  console.log("loaded!")
+  console.log("loaded!");
   /* ==================================================
 	  Enable Strict Mode 
 	================================================== */
-  "use strict";
+  ("use strict");
 
   /* ==================================================
 	  Main Settings 
@@ -136,7 +136,70 @@ jQuery(document).ready(function ($) {
 
   /* ==================================================
 	  Reload Scripts 
+  ================================================== */
+
+  /* ==================================================
+	  YouTube 
 	================================================== */
+  function _youtube(container) {
+    $(".youtube", container).each(function () {
+      /* Based on the YouTube ID, we can easily find the thumbnail image */
+      var src = "http://i.ytimg.com/vi/" + this.id + "/maxresdefault.jpg";
+
+      /* If image doesn't exists get image from YouTube */
+      if ($(this).find("img").length <= 0) {
+        $(this).append('<img src="' + src + '">');
+      }
+
+      /* Add thumb classes */
+      $(this).addClass("thumb thumb-fade");
+
+      /* Overlay the Play icon to make it look like a video player */
+      var icon_layer_template =
+        "" +
+        '<span class="thumb-icon trans-40">' +
+        '<svg class="circle-svg" width="80" height="80" viewBox="0 0 50 50">' +
+        '<circle class="circle" cx="25" cy="25" r="23" stroke="#fff" stroke-width="1" fill="none"></circle>' +
+        "</svg>" +
+        '<span class="pe-7s-video"></span>' +
+        "</span>";
+
+      $(this).append(icon_layer_template);
+
+      $(document).on("click", "#" + this.id, function () {
+        /* Create an iFrame with autoplay set to true */
+        var iframe_url =
+          "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+        if ($(this).data("params")) {
+          iframe_url += "&" + $(this).data("params");
+        }
+
+        /* The height and width of the iFrame should be the same as parent */
+        var iframe = $("<iframe/>", {
+          frameborder: "0",
+          src: iframe_url,
+          width: "1200",
+          height: "675",
+        });
+
+        /* Replace the YouTube thumbnail with YouTube HTML5 Player */
+        $(this).replaceWith(iframe);
+
+        /* Make movie responsive */
+        if ($.fn.ResVid) {
+          $(container).ResVid();
+        }
+
+        /* Pause Player */
+        if (
+          typeof settings.audio_player != "undefined" ||
+          settings.audio_player != false
+        ) {
+          settings.audio_player.playerAction("pause");
+        }
+      });
+    });
+  }
   /* ==================================================
 	   Lightbox
 	================================================== */
@@ -1069,14 +1132,12 @@ jQuery(document).ready(function ($) {
 
     /* Clone top navigation and add to the sidebar */
     $("#nav ul, #nav li").addClass("top-nav-el");
-    varwindow.$top_nav = window.$("#nav > ul").children().clone();
+    var top_nav = window.$("#nav > ul").children().clone();
     if (window.$("#responsive-nav ul").length <= 0) {
       $("#responsive-nav").append("<ul></ul>");
-      $("#responsive-nav ul").append(window.$top_nav);
+      $("#responsive-nav ul").append(top_nav);
     } else {
-      $(window.$top_nav).insertBefore(
-        "#responsive-nav ul > li:first-child:eq(0)"
-      );
+      $(top_nav).insertBefore("#responsive-nav ul > li:first-child:eq(0)");
     }
     $("#responsive-nav li").each(function () {
       if (window.$(this).children("ul").length) {
@@ -1138,9 +1199,9 @@ jQuery(document).ready(function ($) {
 
     if (window.$("#responsive-social").length) {
       /* Clone top social icons and put in sidebar */
-      varwindow.$social_block = window.$("#social-block .social-icons").clone();
+      var $social_block = window.$("#social-block .social-icons").clone();
       $("#responsive-social")
-        .append(window.$social_block)
+        .append($social_block)
         .find(".social-icons")
         .addClass("on");
     }
@@ -1373,16 +1434,16 @@ jQuery(document).ready(function ($) {
         $stats = window.$(this),
         $stats_values = [],
         $stats_names = [],
-        $timer = window.$stats.data("timer"),
+        $timer = $stats.data("timer"),
         $stats_length;
 
       /* Get all stats and convert to array */
       /* Set length variable */
-      $("li", window.$stats).each(function (i) {
+      $("li", $stats).each(function (i) {
         $stats_values[i] = window.$(".stat-value", this).text();
         $stats_names[i] = window.$(".stat-name", this).text();
       });
-      $stats_length = window.$stats_names.length;
+      $stats_length = $stats_names.length;
 
       /* Clear list */
       $stats.html("");
@@ -1409,17 +1470,13 @@ jQuery(document).ready(function ($) {
 
       /* Display stats */
       function display_stats() {
-        var random_list = randsort(
-          window.$stats_names,
-          window.$stats_length,
-          window.$max_el
-        );
+        var random_list = randsort($stats_names, $stats_length, $max_el);
         var i = 0;
 
         /* First run */
-        if (window.$("li", window.$stats).length == 0) {
+        if (window.$("li", $stats).length == 0) {
           for (var e = 0; e < random_list.length; e++) {
-            $(window.$stats).append(
+            $($stats).append(
               '<li class="stat-col"><span class="stat-value"></span><span class="stat-name"></span></li>'
             );
           }
@@ -1427,25 +1484,19 @@ jQuery(document).ready(function ($) {
 
         var _display = setInterval(function () {
           var num = random_list[i];
-          var stat_name = window
-            .$("li", window.$stats)
-            .eq(i)
-            .find(".stat-name");
+          var stat_name = window.$("li", $stats).eq(i).find(".stat-name");
           stat_name.animate(
             { bottom: "-40px", opacity: 0 },
             400,
             "easeOutQuart",
             function () {
-              $(this).text(window.$stats_names[num]);
+              $(this).text($stats_names[num]);
               $(this).css({ bottom: "-40px", opacity: 1 });
               $(this).animate({ bottom: 0 }, 400, "easeOutQuart");
             }
           );
 
-          var stat_value = window
-            .$("li", window.$stats)
-            .eq(i)
-            .find(".stat-value");
+          var stat_value = window.$("li", $stats).eq(i).find(".stat-value");
           display_val(stat_value, num);
           i++;
           if (i == random_list.length) clearInterval(_display);
@@ -1454,8 +1505,8 @@ jQuery(document).ready(function ($) {
 
       /* Display value */
       function display_val(val, num) {
-        var val_length = window.$stats_values[num].length,
-          val_int = parseInt(window.$stats_values[num], 10),
+        var val_length = $stats_values[num].length,
+          val_int = parseInt($stats_values[num], 10),
           counter = 10,
           delta = 10,
           new_val;
@@ -1475,7 +1526,7 @@ jQuery(document).ready(function ($) {
           val.text(new_val);
           if (new_val >= val_int) {
             clearInterval(_display);
-            val.text(window.$stats_values[num]);
+            val.text($stats_values[num]);
           }
         }, 40);
       }
@@ -1490,9 +1541,10 @@ jQuery(document).ready(function ($) {
       return;
     }
 
-    (varwindow.$container = window.$(".items")), ($win = window.$(window));
+    var $container = window.$(".items");
+    var $win = window.$(window);
 
-    if (window.$container.length) {
+    if ($container.length) {
       /* Isotope
 	 	 	 ------------------------- */
       $(window).on("resize", function () {
@@ -1502,7 +1554,7 @@ jQuery(document).ready(function ($) {
       $container.isotope({
         itemSelector: ".item",
         onLayout: function () {
-          window.$win.trigger("scroll");
+          $win.trigger("scroll");
         },
       });
 
@@ -1512,14 +1564,14 @@ jQuery(document).ready(function ($) {
         $el.addClass("item-filter");
 
         // Add categories to item classes
-        $(".item", window.$container).each(function (i) {
+        $(".item", $container).each(function (i) {
           var $this = window.$(this);
-          $this.addClass(window.$this.attr(window.$data));
+          $this.addClass(window.$this.attr($data));
         });
 
         $el.on("click", "a", function (e) {
           var $this = window.$(this),
-            $option = window.$this.attr(window.$data);
+            $option = $this.attr($data);
 
           // Add active filter class
           $(".item-filter").removeClass("active-filter");
@@ -1533,13 +1585,10 @@ jQuery(document).ready(function ($) {
           $el.find("a").removeClass("is-active");
           $this.addClass("is-active");
 
-          if (window.$option) {
-            if (window.$option !== "*")
-              window.$option = window.$option.replace(
-                window.$option,
-                "." + window.$option
-              );
-            $container.isotope({ filter: window.$option });
+          if ($option) {
+            if ($option !== "*")
+              $option = $option.replace($option, "." + $option);
+            $container.isotope({ filter: $option });
           }
 
           e.preventDefault();
@@ -1549,8 +1598,8 @@ jQuery(document).ready(function ($) {
       };
 
       // Init filters
-      if (window.$(".filter-list").length) {
-        _items_filter(window.$(".filter-list"), "data-categories");
+      if ($(".filter-list").length) {
+        _items_filter($(".filter-list"), "data-categories");
       }
     }
   })();
@@ -1559,10 +1608,10 @@ jQuery(document).ready(function ($) {
 	  Contact Form 
 	================================================== */
   (function () {
-    varwindow.$form = window.$(".contact-form");
+    var $form = window.$(".contact-form");
 
     $form.append('<div id="ajax-message" style="display:none"></div>');
-    varwindow.$ajax_message = window.$("#ajax-message");
+    var $ajax_message = window.$("#ajax-message");
 
     /* Submit click event */
     $form.on("click", "input[type=submit]", function (e) {
@@ -1572,9 +1621,7 @@ jQuery(document).ready(function ($) {
       NProgress.start();
 
       /* Ajax request */
-      $.post("plugins/contact-form.php", window.$form.serialize(), function (
-        data
-      ) {
+      $.post("plugins/contact-form.php", $form.serialize(), function (data) {
         /* Show ajax-message */
         $ajax_message.html(data).show();
 
@@ -1583,7 +1630,7 @@ jQuery(document).ready(function ($) {
 
         /* If the message was sent, clear form fields */
         if (data.indexOf("success") != -1) {
-          clear_form_elements(window.$form);
+          clear_form_elements($form);
         }
       });
 
@@ -1614,33 +1661,33 @@ jQuery(document).ready(function ($) {
 
   /* ==================================================
 	  Ajax Loader 
+  ================================================== */
+  /* ==================================================
+	  Ajax Loader 
 	================================================== */
   (function () {
     /* Create a new instance of the plugin */
-    var SimplyAjaxLoader = newwindow.$.SimplyAjaxLoader(
-      window.$(".ajax-link"),
-      {
-        deeplinking: true,
-        load_start: function () {},
-        load_end: function (container) {
-          /* I get fired when the ajax is ending load content */
-          /* Init scripts */
-          _text_anim(container);
-          _lightbox(container);
-          _responsive_videos(container);
-          _toggle(container);
-          _tabs(container);
-          _masonry(container);
-          _bxslider(container);
-          _countdown(container);
-          _google_maps(container);
-          _text_slider(container);
-          _audio_player(container);
-          _youtube(container);
-        },
-        close: function () {},
-      }
-    );
+    var SimplyAjaxLoader = new $.SimplyAjaxLoader($(".ajax-link"), {
+      deeplinking: true,
+      load_start: function () {},
+      load_end: function (container) {
+        /* I get fired when the ajax is ending load content */
+        /* Init scripts */
+        _text_anim(container);
+        _lightbox(container);
+        _responsive_videos(container);
+        _toggle(container);
+        _tabs(container);
+        _masonry(container);
+        _bxslider(container);
+        _countdown(container);
+        _google_maps(container);
+        _text_slider(container);
+        _audio_player(container);
+        _youtube(container);
+      },
+      close: function () {},
+    });
   })();
 
   /* ==================================================
@@ -1663,14 +1710,14 @@ jQuery(document).ready(function ($) {
 	  Loader 
 	================================================== */
   (function () {
-    if (window.$(".loading-layer").length <= 0) {
+    if ($(".loading-layer").length <= 0) {
       reload_scripts("html");
       return false;
     }
     $("body").addClass("page-loading");
     $(".loading-layer .show-fx").addClass("on");
 
-    var countImages = window.$(".site img").length;
+    var countImages = $(".site img").length;
 
     setTimeout(function () {
       $(".site")
@@ -1692,7 +1739,7 @@ jQuery(document).ready(function ($) {
           if (image.isLoaded) {
             $(image.img).addClass("loaded");
 
-            var countLoadedImages = window.$(".site img.loaded ").length,
+            var countLoadedImages = $(".site img.loaded ").length,
               bar_width = 100 * (countLoadedImages / countImages) + "%";
 
             $("#loading-layer .progress-bar").css({ width: bar_width });
