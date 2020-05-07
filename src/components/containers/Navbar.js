@@ -209,12 +209,7 @@ const Navbar = () => (
           <ul>
             <li className="text-fx-btn rotate-x-360">
               <a href="#music" className="trans-10 text-fx-btn-x">
-                Music
-              </a>
-            </li>
-            <li className="text-fx-btn rotate-x-360">
-              <a href="#events" className="trans-10 text-fx-btn-x">
-                Events
+                Shop
               </a>
             </li>
             <li className="text-fx-btn rotate-x-360">

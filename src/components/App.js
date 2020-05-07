@@ -11,7 +11,7 @@ import Bio from './presentation/Bio';
 const App = () => {
   return (
     <div>
-      <div hidden id="snipcart" data-api-key={`${process.env.REACT_APP_API_KEY}`}></div>
+      <div id="snipcart" data-api-key={`${process.env.REACT_APP_API_KEY}`}></div>
       <MobileNav />
       <Navbar />
       <div className="site">

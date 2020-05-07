@@ -1541,8 +1541,8 @@ jQuery(document).ready(function ($) {
       return;
     }
 
-    var $container = window.$(".items");
-    var $win = window.$(window);
+    var $container = $(".items"),
+      $win = $(window);
 
     if ($container.length) {
       /* Isotope
@@ -1565,12 +1565,12 @@ jQuery(document).ready(function ($) {
 
         // Add categories to item classes
         $(".item", $container).each(function (i) {
-          var $this = window.$(this);
-          $this.addClass(window.$this.attr($data));
+          var $this = $(this);
+          $this.addClass($this.attr($data));
         });
 
         $el.on("click", "a", function (e) {
-          var $this = window.$(this),
+          var $this = $(this),
             $option = $this.attr($data);
 
           // Add active filter class
@@ -1709,42 +1709,42 @@ jQuery(document).ready(function ($) {
   /* ==================================================
 	  Loader 
 	================================================== */
-  (function () {
-    if ($(".loading-layer").length <= 0) {
-      reload_scripts("html");
-      return false;
-    }
-    $("body").addClass("page-loading");
-    $(".loading-layer .show-fx").addClass("on");
+  // (function () {
+  //   if ($(".loading-layer").length <= 0) {
+  //     reload_scripts("html");
+  //     return false;
+  //   }
+  //   $("body").addClass("page-loading");
+  //   $(".loading-layer .show-fx").addClass("on");
 
-    var countImages = $(".site img").length;
+  //   var countImages = $(".site img").length;
 
-    setTimeout(function () {
-      $(".site")
-        .imagesLoaded({ background: true })
-        .always(function (instance) {
-          $(".loading-layer").addClass("hide-layer");
+  //   setTimeout(function () {
+  //     $(".site")
+  //       .imagesLoaded({ background: true })
+  //       .always(function (instance) {
+  //         $(".loading-layer").addClass("hide-layer");
 
-          setTimeout(function () {
-            $(".loading-layer")
-              .css("visibility", "hidden")
-              .removeClass("hide-layer show-layer");
-            $("body").removeClass("page-loading");
+  //         setTimeout(function () {
+  //           $(".loading-layer")
+  //             .css("visibility", "hidden")
+  //             .removeClass("hide-layer show-layer");
+  //           $("body").removeClass("page-loading");
 
-            _homepage_init("html");
-            _text_slider("#intro");
-          }, 1400);
-        })
-        .progress(function (instance, image) {
-          if (image.isLoaded) {
-            $(image.img).addClass("loaded");
+  //           _homepage_init("html");
+  //           _text_slider("#intro");
+  //         }, 1400);
+  //       })
+  //       .progress(function (instance, image) {
+  //         if (image.isLoaded) {
+  //           $(image.img).addClass("loaded");
 
-            var countLoadedImages = $(".site img.loaded ").length,
-              bar_width = 100 * (countLoadedImages / countImages) + "%";
+  //           var countLoadedImages = $(".site img.loaded ").length,
+  //             bar_width = 100 * (countLoadedImages / countImages) + "%";
 
-            $("#loading-layer .progress-bar").css({ width: bar_width });
-          }
-        });
-    }, 1000);
-  })();
+  //           $("#loading-layer .progress-bar").css({ width: bar_width });
+  //         }
+  //       });
+  //   }, 1000);
+  // })();
 });
