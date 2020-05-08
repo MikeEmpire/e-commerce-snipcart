@@ -7,16 +7,16 @@ const Splash = () => (
       <img className="hidden" src={splashImage} alt="Splash screen" />
     </div>
 
-    <div className="text-slider" data-delay="5">
-      <div className="text-slide visible">
-        <h2 className="text-fx">Custom Design</h2>
-        <h6 className="text-fx-word">
+    <div class="text-slider" data-delay="5">
+      <div class="text-slide visible">
+        <h2 class="text-fx">Custom Design</h2>
+        <h6 class="text-fx-word">
           browse our selection of high detailed customized vehicles
         </h6>
       </div>
-      <div className="text-slide">
-        <h2 className="text-fx">Music Player</h2>
-        <h6 className="text-fx-word">
+      <div class="text-slide">
+        <h2 class="text-fx">Music Player</h2>
+        <h6 class="text-fx-word">
           is the industry standard music player for a fully responsive design
           that scales automatically to suit any device
         </h6>

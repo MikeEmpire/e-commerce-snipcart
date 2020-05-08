@@ -1,6 +1,8 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const Product = (props) => {
+  const notify = (name) => toast(`Just added ${name} to the cart!`);
   const { product } = props;
   return (
     <div className="item" data-categories="new glitch">
@@ -14,7 +16,7 @@ const Product = (props) => {
           <h2 className="text-fx-word">{product.name}</h2>
           <h3 className="text-fx-word">Meloo</h3>
         </div>
-        <span className="thumb-icon trans-40">
+        {/* <span className="thumb-icon trans-40">
           <svg
             className="circle-svg"
             width="80"
@@ -31,13 +33,14 @@ const Product = (props) => {
               fill="none"
             ></circle>
           </svg>
-        </span>
+        </span> */}
       </a>
       <button
         className="buy-button snipcart-add-item sell-button"
         data-item-id={product.id}
         data-item-price={product.price}
         data-item-url={product.url}
+        onClick={() => notify(product.name)}
         data-item-name={product.name}
       >
         Add to cart {product.price}

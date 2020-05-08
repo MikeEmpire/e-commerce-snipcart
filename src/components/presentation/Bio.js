@@ -46,7 +46,12 @@ const Bio = () => (
       <div className="container full-width bio-bg-block">
         <a href="#" className="click-layer thumb">
           <span className="thumb-icon trans-40 on">
-            <svg className="circle-svg" width="80" height="80" viewBox="0 0 50 50">
+            <svg
+              className="circle-svg"
+              width="80"
+              height="80"
+              viewBox="0 0 50 50"
+            >
               <circle
                 className="circle"
                 cx="25"
@@ -68,7 +73,10 @@ const Bio = () => (
       </div>
     </div>
 
-    <div className="container full-width section-content stats-bg-block">
+    <div
+      className="container full-width section-content stats-bg-block"
+      style={{ zIndex: 0 }}
+    >
       <div className="grid-row grid-row-pad">
         <div className="grid-6 grid-tablet-12 grid-mobile-12">
           <h3 className="heading-1 text-center">Testimonials</h3>
@@ -179,4 +187,4 @@ const Bio = () => (
   </div>
 );
 
-export default Bio
+export default Bio;
