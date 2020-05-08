@@ -131,7 +131,10 @@ const Navbar = () => (
               </a>
             </li>
             <li className="cart-trigger-wrap">
-              <a href="#show-cart" className="cart-btn circle-btn snipcart-checkout">
+              <a
+                href="#show-cart"
+                className="cart-btn circle-btn snipcart-checkout"
+              >
                 <svg
                   className="circle-svg"
                   width="40"
@@ -183,6 +186,31 @@ const Navbar = () => (
                 <span className="pe-7s-search"></span>
               </a>
             </li> */}
+
+            <li>
+              <a
+                href="#intro"
+                className="circle-btn snipcart-customer-signin"
+              >
+                <svg
+                  className="circle-svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    className="circle"
+                    cx="25"
+                    cy="25"
+                    r="23"
+                    stroke="#fff"
+                    strokeWidth="1"
+                    fill="none"
+                  ></circle>
+                </svg>
+                <span className="pe-7s-users"></span>
+              </a>
+            </li>
             <li className="social-trigger-wrap">
               <a href="#intro" id="nav-social" className="circle-btn">
                 <svg
@@ -202,27 +230,6 @@ const Navbar = () => (
                   ></circle>
                 </svg>
                 <span className="pe-7s-share"></span>
-              </a>
-            </li>
-            <li>
-              <a href="#intro" id="nav-social" className="circle-btn snipcart-customer-signin">
-                <svg
-                  className="circle-svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 50 50"
-                >
-                  <circle
-                    className="circle"
-                    cx="25"
-                    cy="25"
-                    r="23"
-                    stroke="#fff"
-                    strokeWidth="1"
-                    fill="none"
-                  ></circle>
-                </svg>
-                <span className="pe-7s-users"></span>
               </a>
             </li>
           </ul>

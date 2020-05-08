@@ -10,26 +10,20 @@ import Splash from "./presentation/Splash";
 import Bio from "./presentation/Bio";
 import Footer from "./presentation/Footer";
 
-const App = () => {
-  console.log(process.env);
-  return (
-    <div>
-      <div
-        id="snipcart"
-        data-api-key={`${process.env.REACT_APP_API_KEY}`}
-      ></div>
-      <MobileNav />
-      <Navbar />
-      <div className="site">
-        <Splash />
-        <Music />
-        <Bio />
-        <Contact />
-        <Newsletter />
-        <Footer />
-      </div>
+const App = () => (
+  <div>
+    <div id="snipcart" data-api-key={`${process.env.REACT_APP_API_KEY}`}></div>
+    <MobileNav />
+    <Navbar />
+    <div className="site">
+      <Splash />
+      <Music />
+      <Bio />
+      <Contact />
+      <Newsletter />
+      <Footer />
     </div>
-  );
-};
+  </div>
+);
 
 export default App;
