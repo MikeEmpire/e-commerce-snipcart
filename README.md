@@ -50,9 +50,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Deploy steps
 
-- Make sure information is commited to repo
-- ``` npm run build
-- ```netlify deploy --prod
+- *Make sure information is commited to repo (CAUTION)*
+- ``` npm run build```
+- ``` netlify deploy --prod ```
 
 ### Additional Information
 - Products are managed using snipcart
