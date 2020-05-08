@@ -988,12 +988,12 @@ jQuery(document).ready(function ($) {
 
     // For each instance
     $(".text-slider", container).each(function () {
-      (varwindow.$this = window.$(this)),
-        (delay = parseInt(window.$this.attr("data-delay"), 10)),
+      var $this = window.$(this),
+        delay = parseInt($this.attr("data-delay"), 10),
         handle,
-        (index = 1),
-        (l = window.$(this).find(".text-slide").length - 1),
-        (delay = delay * 1000);
+        index = 1,
+        l = $(this).find(".text-slide").length - 1,
+        delay = delay * 1000;
       if (l == 0) {
         return;
       }
@@ -1709,42 +1709,37 @@ jQuery(document).ready(function ($) {
   /* ==================================================
 	  Loader 
 	================================================== */
-  // (function () {
-  //   if ($(".loading-layer").length <= 0) {
-  //     reload_scripts("html");
-  //     return false;
-  //   }
-  //   $("body").addClass("page-loading");
-  //   $(".loading-layer .show-fx").addClass("on");
+  (function () {
 
-  //   var countImages = $(".site img").length;
+    var countImages = $(".site img").length;
+    
+    _text_slider("#intro");
 
-  //   setTimeout(function () {
-  //     $(".site")
-  //       .imagesLoaded({ background: true })
-  //       .always(function (instance) {
-  //         $(".loading-layer").addClass("hide-layer");
+    setTimeout(function () {
+      $(".site")
+        .imagesLoaded({ background: true })
+        .always(function (instance) {
+          $(".loading-layer").addClass("hide-layer");
 
-  //         setTimeout(function () {
-  //           $(".loading-layer")
-  //             .css("visibility", "hidden")
-  //             .removeClass("hide-layer show-layer");
-  //           $("body").removeClass("page-loading");
+          setTimeout(function () {
+            $(".loading-layer")
+              .css("visibility", "hidden")
+              .removeClass("hide-layer show-layer");
+            $("body").removeClass("page-loading");
 
-  //           _homepage_init("html");
-  //           _text_slider("#intro");
-  //         }, 1400);
-  //       })
-  //       .progress(function (instance, image) {
-  //         if (image.isLoaded) {
-  //           $(image.img).addClass("loaded");
+            _homepage_init("html");
+          }, 1400);
+        })
+        .progress(function (instance, image) {
+          if (image.isLoaded) {
+            $(image.img).addClass("loaded");
 
-  //           var countLoadedImages = $(".site img.loaded ").length,
-  //             bar_width = 100 * (countLoadedImages / countImages) + "%";
+            var countLoadedImages = $(".site img.loaded ").length,
+              bar_width = 100 * (countLoadedImages / countImages) + "%";
 
-  //           $("#loading-layer .progress-bar").css({ width: bar_width });
-  //         }
-  //       });
-  //   }, 1000);
-  // })();
+            $("#loading-layer .progress-bar").css({ width: bar_width });
+          }
+        });
+    }, 1000);
+  })();
 });

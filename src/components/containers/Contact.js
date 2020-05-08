@@ -2,14 +2,14 @@ import React from "react";
 
 const Contact = () => (
   <div id="contact" className="section">
-    <div
+    {/* <div
       id="contact-map"
       className="gmap clearfix"
       data-address="Level 13, 2 Elizabeth St, Melbourne Victoria 3000 Australia"
       data-zoom="10"
       data-zoom_control="true"
       data-scrollwheel="false"
-    ></div>
+    ></div> */}
 
     <div className="container section-content clearfix">
       <header className="content-header">
