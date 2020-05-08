@@ -43,26 +43,18 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Getting Started
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- ```run npm install (make sure you have node installed)
+- ```npm start
 
-### Analyzing the Bundle Size
+### Deploy steps
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Make sure information is commited to repo
+- ``` npm run build
+- ```netlify deploy --prod
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Additional Information
+- Products are managed using snipcart
+- Please refer to [Snipcart Documentation](https://docs.snipcart.com/v3/setup/products) for help on setting up the store
+- Static products are created in the src/products folder
