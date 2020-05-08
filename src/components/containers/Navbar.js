@@ -187,7 +187,7 @@ const Navbar = () => (
               </a>
             </li> */}
 
-            <li>
+            <li id="user-access">
               <a
                 href="#intro"
                 className="circle-btn snipcart-customer-signin"

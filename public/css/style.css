@@ -7029,6 +7029,10 @@ a:hover .text-fx-word p span,
 		margin: 20px auto 50px
 	}
 
+	.snipcart-cart-header {
+		margin-top: 16% !important;
+	}
+
 
 	/* Audio Elements
  	 -------------------------------- */
@@ -7165,4 +7169,7 @@ a:hover .text-fx-word p span,
 		font-size: 60px
 	}
 
+	#user-access {
+		float: right !important;
+	}
 }
