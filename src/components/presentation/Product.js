@@ -6,11 +6,12 @@ const Product = (props) => {
   const { product } = props;
   return (
     <div className="item" data-categories="new glitch">
+      {/* eslint-disable-next-line */}
       <a
         className="thumb project-thumb thumb-fade ajax-link"
         data-nav-container="#music-items"
       >
-        <img src="images/release01.jpg" alt="Release image" />
+        <img src="images/release01.jpg" alt="Release" />
         <span className="badge new">NEW</span>
         <div className="desc-layer">
           <h2 className="text-fx-word">{product.name}</h2>

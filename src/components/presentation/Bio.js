@@ -44,6 +44,7 @@ const Bio = () => (
       </div>
 
       <div className="container full-width bio-bg-block">
+        {/* eslint-disable-next-line */}
         <a href="#" className="click-layer thumb">
           <span className="thumb-icon trans-40 on">
             <svg
@@ -68,7 +69,7 @@ const Bio = () => (
         <img
           data-parallax='{"y": -50}'
           src="images/bio-image.png"
-          alt="Bio image"
+          alt="Bio"
         />
       </div>
     </div>
@@ -87,7 +88,7 @@ const Bio = () => (
                 <div className="back-layer" data-parallax='{"y": -30}'>
                   <img
                     src="images/testimonial-image-01.jpg"
-                    alt="slide image"
+                    alt="slide"
                     className="trans-25"
                   />
                 </div>
@@ -109,7 +110,7 @@ const Bio = () => (
                 <div className="back-layer" data-parallax='{"y": -30}'>
                   <img
                     src="images/testimonial-image-02.jpg"
-                    alt="slide image"
+                    alt="slide"
                     className="trans-25"
                   />
                 </div>
